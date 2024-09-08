@@ -1,0 +1,39 @@
+.confirmation-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.confirmation-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.confirmation-content {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.confirmation-message {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.confirmation-message h2 {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.order-details {
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
+
+.order-details h3 {
+  margin-bottom: 1rem;
+}
+
+.order-details p {
+  margin-bottom: 0.5rem;
+}

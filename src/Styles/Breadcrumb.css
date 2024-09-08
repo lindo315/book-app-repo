@@ -1,0 +1,22 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #2980b9;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: #999;
+}

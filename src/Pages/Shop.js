@@ -1,27 +1,28 @@
-import React, { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import BookModal from "./BookModal";
-import "../Styles/TeacherBookCollection.css";
+import React, { useState, useEffect } from "react";
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import Breadcrumb from "../Components/Breadcrumb";
+import BookModal from "../Components/BookModal";
+import { books } from "../mockData";
+import "../Styles/Shop.css";
 
-const TeacherBookCollection = ({ authors, addToCart }) => {
+const Shop = ({ addToCart }) => {
   const [activeSubject, setActiveSubject] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState(books);
   const [selectedBook, setSelectedBook] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const allBooks = authors.flatMap((author) =>
-    author.books.map((book) => ({
-      ...book,
-      author: author.name,
-      teacherInfo: author.bio,
-    }))
-  );
+  const subjects = ["All", ...new Set(books.map((book) => book.subject))];
 
-  const subjects = ["All", ...new Set(allBooks.map((book) => book.subject))];
-
-  const filteredBooks =
-    activeSubject === "All"
-      ? allBooks
-      : allBooks.filter((book) => book.subject === activeSubject);
+  useEffect(() => {
+    const results = books.filter(
+      (book) =>
+        (activeSubject === "All" || book.subject === activeSubject) &&
+        (book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          book.author.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+    setFilteredBooks(results);
+  }, [activeSubject, searchTerm]);
 
   const openModal = (book) => {
     setSelectedBook(book);
@@ -32,13 +33,23 @@ const TeacherBookCollection = ({ authors, addToCart }) => {
     setIsModalOpen(false);
   };
 
-  const handleGetQuote = (book) => {
-    addToCart(book);
+  const handleAddToCart = (book) => {
+    addToCart({ ...book, quantity: 1 });
   };
 
   return (
-    <section className="teacher-book-collection">
-      <h2 className="collection-title">Books by Our Expert Educators</h2>
+    <section className="teacher-book-collection shop-page">
+      <Breadcrumb items={["Home", "Shop"]} />
+      <h2 className="collection-title">Educational Book Shop</h2>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search books or authors..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <FaSearch className="search-icon" />
+      </div>
       <div className="subject-filters">
         {subjects.map((subject) => (
           <button
@@ -62,6 +73,7 @@ const TeacherBookCollection = ({ authors, addToCart }) => {
             <div className="book-info">
               <h3 className="book-title">{book.title}</h3>
               <p className="book-author">{book.author}</p>
+              <p className="book-price">R{book.price.toFixed(2)}</p>
               <p className="book-description">{book.description}</p>
               <div className="book-actions">
                 <button
@@ -72,7 +84,7 @@ const TeacherBookCollection = ({ authors, addToCart }) => {
                 </button>
                 <button
                   className="get-quote-button"
-                  onClick={() => handleGetQuote(book)}
+                  onClick={() => handleAddToCart(book)}
                 >
                   <FaShoppingCart /> Add to Cart
                 </button>
@@ -92,4 +104,4 @@ const TeacherBookCollection = ({ authors, addToCart }) => {
   );
 };
 
-export default TeacherBookCollection;
+export default Shop;

@@ -60,7 +60,7 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  height: 400px;
+  height: 600px;
 }
 
 .bookCover {
@@ -80,10 +80,17 @@
   z-index: 2;
 }
 
+.firstBookCover {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
 .secondBookCover {
   bottom: 0;
   right: 0;
-  transform: rotate(6deg);
+  transform: rotate(8deg);
   z-index: 1;
 }
 

@@ -1,39 +1,69 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ cartItemCount, toggleCart }) => {
+  const location = useLocation();
+
   return (
     <nav className="navbar">
       <div className="leftSection">
-        <img src="/images/Logo.png" alt="Bokify Logo" className="logo" />
+        <Link to="/" className="logo-link">
+          <img src="/images/Logo.png" alt="Bokify Logo" className="logo" />
+        </Link>
         <div className="navLinks">
-          <a href="#" className="navLink">
+          <Link
+            to="/"
+            className={`navLink ${location.pathname === "/" ? "active" : ""}`}
+          >
             Home
-          </a>
-          <a href="#" className="navLink">
+          </Link>
+          <Link
+            to="/shop"
+            className={`navLink ${
+              location.pathname === "/shop" ? "active" : ""
+            }`}
+          >
             Shop
-          </a>
-          <a href="#" className="navLink">
+          </Link>
+          <Link
+            to="/blog"
+            className={`navLink ${
+              location.pathname === "/blog" ? "active" : ""
+            }`}
+          >
             Blog
-          </a>
-          <a href="#" className="navLink">
-            Page
-          </a>
-          <a href="#" className="navLink">
+          </Link>
+          <Link
+            to="/about"
+            className={`navLink ${
+              location.pathname === "/about" ? "active" : ""
+            }`}
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className={`navLink ${
+              location.pathname === "/contact" ? "active" : ""
+            }`}
+          >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
       <div className="rightSection">
-        <div className="searchContainer">
+        {/* <div className="searchContainer">
           <input type="text" placeholder="Search" className="searchInput" />
           <FaSearch className="searchIcon" />
-        </div>
-        <FaUser className="icon" />
-        <div className="cartIcon">
+        </div> */}
+        <FaUser className="icon userIcon" />
+        <div className="cartIcon" onClick={toggleCart}>
           <FaShoppingCart />
-          <span className="cartCount">0</span>
+          {cartItemCount > 0 && (
+            <span className="cartCount">{cartItemCount}</span>
+          )}
         </div>
       </div>
     </nav>

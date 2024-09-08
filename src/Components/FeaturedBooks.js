@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -6,6 +7,7 @@ import {
   FaBookOpen,
   FaQuoteRight,
 } from "react-icons/fa";
+import BookModal from "./BookModal";
 import "../Styles/FeaturedBooks.css";
 
 const books = [
@@ -19,6 +21,13 @@ const books = [
     rating: 4.8,
     pages: 250,
     featuredQuote: "Makes math come alive for young minds!",
+    price: 29.99,
+    subject: "Mathematics",
+    type: "Physical",
+    publisher: "Luminous Publishing",
+    language: "English",
+    isbn: "978-1234567890",
+    dimension: "8.5 x 11 inches",
   },
   {
     id: 2,
@@ -30,6 +39,13 @@ const books = [
     rating: 4.9,
     pages: 200,
     featuredQuote: "The perfect start for young coders!",
+    price: 34.99,
+    subject: "Computer Science",
+    type: "Physical",
+    publisher: "TechKids Press",
+    language: "English",
+    isbn: "978-0987654321",
+    dimension: "7 x 9 inches",
   },
   {
     id: 3,
@@ -41,12 +57,22 @@ const books = [
     rating: 4.7,
     pages: 300,
     featuredQuote: "Ignites a passion for scientific discovery!",
+    price: 39.99,
+    subject: "Science",
+    type: "Physical",
+    publisher: "Curiosity Press",
+    language: "English",
+    isbn: "978-1122334455",
+    dimension: "8 x 10 inches",
   },
 ];
 
-const FeaturedBooks = () => {
+const FeaturedBooks = ({ addToCart }) => {
   const [currentBookIndex, setCurrentBookIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const nextBook = () => {
     setIsAnimating(true);
@@ -68,6 +94,20 @@ const FeaturedBooks = () => {
   }, [isAnimating]);
 
   const currentBook = books[currentBookIndex];
+
+  const openModal = (book) => {
+    setSelectedBook(book);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleGetQuote = (book) => {
+    addToCart(book);
+    navigate("/shop");
+  };
 
   return (
     <section className="featured-books">
@@ -103,8 +143,18 @@ const FeaturedBooks = () => {
               </div>
             </div>
             <div className="book-actions">
-              <button className="read-more-button">Read More</button>
-              <button className="get-quote-button">Get Quote</button>
+              <button
+                className="read-more-button"
+                onClick={() => openModal(currentBook)}
+              >
+                Read More
+              </button>
+              <button
+                className="get-quote-button"
+                onClick={() => handleGetQuote(currentBook)}
+              >
+                Get Quote
+              </button>
             </div>
           </div>
         </div>
@@ -123,6 +173,13 @@ const FeaturedBooks = () => {
           ></span>
         ))}
       </div>
+      {selectedBook && (
+        <BookModal
+          book={selectedBook}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
     </section>
   );
 };

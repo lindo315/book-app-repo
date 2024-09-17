@@ -8,7 +8,7 @@ const AuthorSection = ({ author }) => {
       <div className="author-image-container">
         <img src={author.image} alt={author.name} className="author-image" />
         <div className="bestseller-tag">Expert Educator</div>
-        <div className="rating">
+        {/* <div className="rating">
           <div className="avatar-group">
             {[1, 2, 3].map((_, index) => (
               <div
@@ -28,7 +28,7 @@ const AuthorSection = ({ author }) => {
             ))}
           </div>
           <div className="average-rating">Rating {author.rating}</div>
-        </div>
+        </div> */}
       </div>
       <div className="author-info">
         <h3 className="meet-author">Featured Author</h3>

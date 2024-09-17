@@ -1,19 +1,19 @@
 .book-features {
   padding: 4rem 2rem;
   margin-top: 1rem;
-  background-color: #f8fafc;
+  background-color: #f9fafb;
 }
 
 .features-title {
   font-size: 2.5rem;
-  color: #1a202c;
+  color: #0e2954;
   text-align: center;
   margin-bottom: 1rem;
 }
 
 .features-subtitle {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: #1f4172;
   text-align: center;
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -34,6 +34,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-item:hover {
@@ -43,34 +45,39 @@
 
 .feature-icon {
   font-size: 2.5rem;
-  color: #3182ce;
+  color: #00e3cc;
   margin-bottom: 1rem;
 }
 
-.feature-title {
+.feature-title,
+.feature-title2 {
   font-size: 1.3rem;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
+  color: #0e2954;
+  line-height: 1.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .feature-description {
   font-size: 1rem;
-  color: #4a5568;
+  color: #1f4172;
   line-height: 1.5;
-  margin-bottom: 1rem;
 }
 
-.read-more-btn {
-  background: none;
-  border: none;
-  color: #3182ce;
+.step-number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #00e3cc;
+  color: #0e2954;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
   font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.read-more-btn:hover {
-  transform: translateX(5px);
 }
 
 @media (max-width: 768px) {

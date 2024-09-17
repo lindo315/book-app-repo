@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
-import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingBasket, FaUser } from "react-icons/fa";
 
 const Navbar = ({ cartItemCount, toggleCart }) => {
   const location = useLocation();
@@ -10,30 +10,18 @@ const Navbar = ({ cartItemCount, toggleCart }) => {
     <nav className="navbar">
       <div className="leftSection">
         <Link to="/" className="logo-link">
-          <img src="/images/Logo.png" alt="Bokify Logo" className="logo" />
+          <img
+            src="/images/Logo-white.png"
+            alt="Bokify Logo"
+            className="logo"
+          />
         </Link>
         <div className="navLinks">
           <Link
             to="/"
             className={`navLink ${location.pathname === "/" ? "active" : ""}`}
           >
-            Home
-          </Link>
-          <Link
-            to="/shop"
-            className={`navLink ${
-              location.pathname === "/shop" ? "active" : ""
-            }`}
-          >
-            Shop
-          </Link>
-          <Link
-            to="/blog"
-            className={`navLink ${
-              location.pathname === "/blog" ? "active" : ""
-            }`}
-          >
-            Blog
+            Tuis | Home
           </Link>
           <Link
             to="/about"
@@ -41,7 +29,23 @@ const Navbar = ({ cartItemCount, toggleCart }) => {
               location.pathname === "/about" ? "active" : ""
             }`}
           >
-            About
+            Ons | About us
+          </Link>
+          <Link
+            to="/shop"
+            className={`navLink ${
+              location.pathname === "/shop" ? "active" : ""
+            }`}
+          >
+            Werkboeke | Workbooks
+          </Link>
+          <Link
+            to="/blog"
+            className={`navLink ${
+              location.pathname === "/blog" ? "active" : ""
+            }`}
+          >
+            Ander Produkte | Other Products
           </Link>
           <Link
             to="/contact"
@@ -49,7 +53,7 @@ const Navbar = ({ cartItemCount, toggleCart }) => {
               location.pathname === "/contact" ? "active" : ""
             }`}
           >
-            Contact
+            Kontak | Contact
           </Link>
         </div>
       </div>
@@ -60,7 +64,7 @@ const Navbar = ({ cartItemCount, toggleCart }) => {
         </div> */}
         <FaUser className="icon userIcon" />
         <div className="cartIcon" onClick={toggleCart}>
-          <FaShoppingCart />
+          <FaShoppingBasket />
           {cartItemCount > 0 && (
             <span className="cartCount">{cartItemCount}</span>
           )}

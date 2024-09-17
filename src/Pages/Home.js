@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // import Navbar from "../Components/Navbar";
 import AuthorSection from "../Components/AuthorSection";
-import FeaturedBooks from "../Components/FeaturedBooks";
+// import FeaturedBooks from "../Components/FeaturedBooks";
 import BookFeatures from "../Components/BookFeatures";
 import TeacherBookCollection from "../Components/TeacherBookCollection";
+import ProductsComponent from "../Components/ProductsComponent";
 import Testimonials from "../Components/Testimonials";
 import "../Styles/Home.css";
 
@@ -13,11 +14,20 @@ const Home = ({ addToCart }) => {
   const scrollToTeacherBookCollection = () => {
     teacherBookCollectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  const [currentBookIndex, setCurrentBookIndex] = useState(0);
+
+  const bookCovers = [
+    "/images/Graad 6 Ruimte.png",
+    "/images/Graad 7 Tegnologie.png",
+    "/images/Graad 4 Sport.png",
+  ];
+
   const authors = [
     {
-      name: "Emily Thornton",
+      name: "Elna Pretorius",
       image: "/images/woman.png",
-      bio: "With over 20 years of experience in primary education, Emily Thornton brings a wealth of knowledge to her engaging and innovative teaching materials.",
+      bio: "With over 20 years of experience in primary education, Elna Pretorius brings a wealth of knowledge to her engaging and innovative teaching materials.",
       booksPublished: 12,
       classroomsImpacted: 5000,
       rating: 4.9,
@@ -57,9 +67,9 @@ const Home = ({ addToCart }) => {
       ],
     },
     {
-      name: "Michael Chen",
+      name: "Lindie Isherwood",
       image: "/images/woman.png",
-      bio: "A passionate advocate for STEM education, Michael Chen combines his background in computer science with his teaching experience to create cutting-edge resources.",
+      bio: "A passionate advocate for STEM education, Lindie Isherwood combines his background in computer science with his teaching experience to create cutting-edge resources.",
       booksPublished: 8,
       classroomsImpacted: 3500,
       rating: 4.8,
@@ -107,36 +117,56 @@ const Home = ({ addToCart }) => {
         <section className="hero-section">
           <div className="content">
             <div className="textContent">
-              <h2 className="subtitle">Empowering Education</h2>
-              <h1 className="title">
-                Inspiring young minds
-                <br />
-                one book at a time
-              </h1>
+              {/* <div className="welcome-div">
+                <h2 className="subtitle">Welcome to</h2>
+              </div> */}
+
+              {/* <h1 className="title">Briljante Boeke</h1> */}
+              <div className="big-logo">
+                <img
+                  src="/images/Logo.png"
+                  alt="Briljante Boeke Logo"
+                  className="logo-big"
+                />
+              </div>
+              {/* <h2 className="subtitle1">Empowering Education</h2> */}
               <button
                 className="button"
                 onClick={scrollToTeacherBookCollection}
               >
+                Verken Ons Werkboeke
+                <br></br>
                 Explore Our Books
               </button>
             </div>
             <div className="imageContent">
               <img
-                src="/images/Grade 6 Space Theme Module 1.png"
+                src={bookCovers[currentBookIndex]}
                 alt="Featured book cover"
-                className="bookCover firstBookCover"
+                className="bookCover currentBookCover"
               />
               <img
-                src="/images/Graad 7 Musiek Cover.png"
+                src={bookCovers[(currentBookIndex + 1) % bookCovers.length]}
                 alt="Featured book cover"
-                className="bookCover secondBookCover"
+                className="bookCover nextBookCover"
+              />
+              <img
+                src={bookCovers[(currentBookIndex + 2) % bookCovers.length]}
+                alt="Featured book cover"
+                className="bookCover lastBookCover"
               />
             </div>
+          </div>
+          <div className="ring-design">
+            <div className="ring ring-1"></div>
+            <div className="ring ring-2"></div>
           </div>
         </section>
 
         <section className="introduction-section">
-          <h2 className="section-title1">Meet Our Expert Educators</h2>
+          <h2 className="section-title1">
+            Ontmoet die Ontwerpers <br></br>Meet Our Expert Educators
+          </h2>
           <p className="section-description">
             Our authors are not just writers – they're experienced educators
             passionate about transforming the classroom experience. With years
@@ -151,13 +181,15 @@ const Home = ({ addToCart }) => {
           ))}
         </section>
 
-        <FeaturedBooks addToCart={addToCart} />
+        {/* <FeaturedBooks addToCart={addToCart} /> */}
 
         <BookFeatures />
 
         <div ref={teacherBookCollectionRef}>
           <TeacherBookCollection authors={authors} addToCart={addToCart} />
         </div>
+
+        <ProductsComponent />
 
         <Testimonials />
       </main>

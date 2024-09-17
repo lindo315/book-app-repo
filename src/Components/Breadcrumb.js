@@ -12,7 +12,9 @@ const Breadcrumb = ({ items }) => {
             <span className="breadcrumb-current">{item}</span>
           ) : (
             <Link
-              to={index === 0 ? "/" : `/${item.toLowerCase()}`}
+              to={
+                index === 0 ? "/" : index === 1 ? `/${item.toLowerCase()}` : "#"
+              }
               className="breadcrumb-link"
             >
               {item}

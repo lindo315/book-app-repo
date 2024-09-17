@@ -8,6 +8,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Checkout from "./Pages/Checkout";
 import Confirmation from "./Pages/Confirmation";
+import BookDetail from "./Pages/BookDetail";
 import Navbar from "./Components/Navbar";
 import Cart from "./Components/Cart";
 import Footer from "./Components/Footer";
@@ -62,6 +63,10 @@ function App() {
               element={<Checkout cart={cart} setCart={setCart} />}
             />
             <Route path="/confirmation" element={<Confirmation />} />
+            <Route
+              path="/book/:id"
+              element={<BookDetail addToCart={addToCart} />}
+            />
           </Routes>
         </main>
         <Footer />

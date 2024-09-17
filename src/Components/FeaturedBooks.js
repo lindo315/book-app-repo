@@ -17,7 +17,7 @@ const books = [
     author: "Emily Thornton",
     description:
       "A comprehensive math textbook that makes learning fun and engaging for 5th graders.",
-    cover: "/images/page.png",
+    cover: "/images/Graad 7 Musiek Cover.png",
     rating: 4.8,
     pages: 250,
     featuredQuote: "Makes math come alive for young minds!",
@@ -35,7 +35,7 @@ const books = [
     author: "Michael Chen",
     description:
       "An introductory programming book that teaches children the fundamentals of Python in a fun, interactive way.",
-    cover: "/images/page.png",
+    cover: "/images/Grade 6 Space Theme Module 1.png",
     rating: 4.9,
     pages: 200,
     featuredQuote: "The perfect start for young coders!",
@@ -53,7 +53,7 @@ const books = [
     author: "Dr. Sarah Johnson",
     description:
       "An all-encompassing science textbook covering biology, chemistry, and physics for middle school students.",
-    cover: "/images/page.png",
+    cover: "/images/Graad 7 Musiek Cover.png",
     rating: 4.7,
     pages: 300,
     featuredQuote: "Ignites a passion for scientific discovery!",

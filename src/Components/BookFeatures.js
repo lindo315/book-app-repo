@@ -1,49 +1,69 @@
 import React from "react";
-import { FaTrophy, FaHandshake, FaBrain, FaPen } from "react-icons/fa";
+import {
+  FaSearch,
+  FaClipboardList,
+  FaFileInvoiceDollar,
+  FaBook,
+} from "react-icons/fa";
 import "../Styles/BookFeatures.css";
 
-const features = [
+const processSteps = [
   {
-    icon: <FaTrophy />,
-    title: "Best Quality",
+    icon: <FaSearch />,
+    title: "Snuffel deur Katalogus",
+    title2: "Browse our Catalogue",
     description:
-      "Premium Book Elegance and Durability Combined in this Best Quality Accessory.",
+      "Snuffel deur ons katalogus en kies die boeke vir die grade wat die beste by jou behoeftes pas.",
+    description2:
+      "Explore our catalogue and select the books for the grades that best suit your needs.",
   },
   {
-    icon: <FaHandshake />,
-    title: "Quick & Friendly",
+    icon: <FaClipboardList />,
+    title: "Versoek Kwotasie",
+    title2: "Request Quote",
     description:
-      "Quick and friendly service for your tech needs. Expert assistance in minutes.",
+      "Vul jou besonderhede op ons eenvoudige kwotasie versoekvorm in.",
+    description2: "Fill in your details on our simple quote request form.",
   },
   {
-    icon: <FaBrain />,
-    title: "Easy to Learn",
+    icon: <FaFileInvoiceDollar />,
+    title: "Ontvang Kwotasie",
+    title2: "Receive Quote",
     description:
-      "Amaze with a skillful perform. Express joy wherever you go with easy-to-learn.",
+      "Ons sal vir jou ’n gedetailleerde kwotasie,  volgens jou keuses, per e-pos stuur.",
+    description2:
+      "We will email you a detailed quote tailored to your selections.",
   },
   {
-    icon: <FaPen />,
-    title: "Handwritten",
+    icon: <FaBook />,
+    title: "Plaas Bestelling",
+    title2: "Place Order",
     description:
-      "Printed Crisp black text on white, conveying timeless in a classic book.",
+      "Op aanvaarding van die kwotasie, sal ons vir jou ’n faktuur stuur en die bal aan die rol sit.",
+    description2:
+      "Upon acceptance of the quote, we will send you an invoice to get the ball rolling.",
   },
 ];
 
 const BookFeatures = () => {
   return (
     <section className="book-features">
-      <h2 className="features-title">Book's Top Features</h2>
+      <h2 className="features-title">
+        Sit die bal aan die rol <br></br> Get the ball rolling
+      </h2>
       <p className="features-subtitle">
-        Your trusted source for the finest. We consistently provide products
-        that embody excellence and gain your confidence.
+        Volg hierdie maklike stappe om ‘n kwotasie aan te vra. <br></br> Follow
+        these easy steps to request a quote.
       </p>
       <div className="features-grid">
-        {features.map((feature, index) => (
+        {processSteps.map((step, index) => (
           <div key={index} className="feature-item">
-            <div className="feature-icon">{feature.icon}</div>
-            <h3 className="feature-title">{feature.title}</h3>
-            <p className="feature-description">{feature.description}</p>
-            <button className="read-more-btn">→</button>
+            <div className="feature-icon">{step.icon}</div>
+            <h3 className="feature-title">{step.title}</h3>
+            <h3 className="feature-title2">{step.title2}</h3>
+            <p className="feature-description">{step.description}</p>
+            <p className="feature-description">{step.description2}</p>
+            <div className="step-number">{index + 1}</div>
           </div>
         ))}
       </div>

@@ -32,7 +32,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #4299e1;
+  /* background-color: #4299e1; */
+  background-color: #00e3cc;
   color: white;
   padding: 5px 10px;
   border-radius: 15px;
@@ -119,12 +120,6 @@
   text-align: center;
 }
 
-.stat-icon {
-  font-size: 1.5rem;
-  color: #4299e1;
-  margin-bottom: 0.5rem;
-}
-
 .stat-number {
   display: block;
   font-size: 1.5rem;
@@ -153,15 +148,18 @@
 }
 
 .contact-button {
-  background-color: #4299e1;
+  /* background-color: #4299e1; */
+  background-color: #00e3cc;
   color: white;
   border: none;
 }
 
 .shop-button {
   background-color: white;
-  color: #4299e1;
-  border: 1px solid #4299e1;
+  /* color: #4299e1; */
+  color: #00e3cc;
+  /* border: 1px solid #4299e1; */
+  border: 1px solid #00e3cc;
 }
 
 .contact-button:hover,

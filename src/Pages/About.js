@@ -1,5 +1,4 @@
 import React from "react";
-import { FaBook, FaGraduationCap, FaUsers, FaGlobe } from "react-icons/fa";
 import "../Styles/About.css";
 
 const About = () => {
@@ -20,29 +19,6 @@ const About = () => {
         </p>
       </section>
 
-      <section className="stats-section">
-        <div className="stat-item">
-          <FaBook className="stat-icon" />
-          <h3>500+</h3>
-          <p>Books Published</p>
-        </div>
-        <div className="stat-item">
-          <FaGraduationCap className="stat-icon" />
-          <h3>100+</h3>
-          <p>Expert Authors</p>
-        </div>
-        <div className="stat-item">
-          <FaUsers className="stat-icon" />
-          <h3>1M+</h3>
-          <p>Students Impacted</p>
-        </div>
-        <div className="stat-item">
-          <FaGlobe className="stat-icon" />
-          <h3>50+</h3>
-          <p>Countries Reached</p>
-        </div>
-      </section>
-
       <section className="story-section">
         <h2>Our Story</h2>
         <p>
@@ -57,24 +33,6 @@ const About = () => {
           students discover the joy of learning and achieve their full
           potential.
         </p>
-      </section>
-
-      <section className="team-section">
-        <h2 className="team-heading">Meet Our Team</h2>
-        <div className="team-grid">
-          {/* Add team member components here */}
-          <div className="team-member">
-            <img src="/images/woman.png" alt="Jane Doe" />
-            <h3>Emily Thornton</h3>
-            <p>Founder & CEO</p>
-          </div>
-          <div className="team-member">
-            <img src="/images/woman.png" alt="John Smith" />
-            <h3>Michael Chen</h3>
-            <p>Head of Content</p>
-          </div>
-          {/* Add more team members as needed */}
-        </div>
       </section>
     </div>
   );

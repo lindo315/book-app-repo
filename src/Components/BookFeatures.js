@@ -49,7 +49,7 @@ const BookFeatures = () => {
   return (
     <section className="book-features">
       <h2 className="features-title">
-        Sit die bal aan die rol <br></br> Get the ball rolling
+        Sit die bal aan die rol | Get the ball rolling
       </h2>
       <p className="features-subtitle">
         Volg hierdie maklike stappe om ‘n kwotasie aan te vra. <br></br> Follow

@@ -34,7 +34,7 @@ const AuthorSection = ({ author }) => {
         <h3 className="meet-author">Featured Author</h3>
         <h2 className="author-name">{author.name}</h2>
         <p className="author-bio">{author.bio}</p>
-        <div className="author-stats">
+        {/* <div className="author-stats">
           <div className="stat">
             <FaBookOpen className="stat-icon" />
             <span className="stat-number">{author.booksPublished}</span>
@@ -49,7 +49,7 @@ const AuthorSection = ({ author }) => {
         <div className="author-actions">
           <button className="contact-button">Contact Author</button>
           <button className="shop-button">View Books</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@
 
 .collection-title {
   font-size: 2.5rem;
-  color: #1a202c;
+  color: #0e2954;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 700;
@@ -39,12 +39,13 @@
 
 .books-grid {
   display: grid;
+  /* background-color: #b1fff7; */
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
+  gap: 5rem;
 }
 
 .book-card {
-  background-color: #fff;
+  background-color: #b1fff7;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -87,21 +88,23 @@
   -webkit-box-orient: vertical;
 }
 
-.book-author {
-  font-size: 0.875rem;
+.book-cycle {
+  font-size: 1rem;
   color: #718096;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
 }
 
 .book-grade {
-  font-size: 0.875rem;
+  font-size: 1rem;
   background-color: #d1f5f4ff;
   padding: 0.25rem 0.5rem;
-  width: 60px;
+  width: 70px;
   border-radius: 10px;
   color: #4a5568;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .book-price {

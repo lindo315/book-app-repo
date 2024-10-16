@@ -1,7 +1,48 @@
+export const mainBooks = [
+  {
+    id: "main4",
+    title: "Graad 4 Afrikaans Huistaal",
+    grade: "Graad 4",
+    cover: "/images/Graad4 - Graad 4.png",
+    description:
+      "Comprehensive Afrikaans Home Language book for Grade 4 students.",
+    modules: ["1", "2"],
+  },
+  {
+    id: "main5",
+    title: "Graad 5 Afrikaans Huistaal",
+    grade: "Graad 5",
+    cover: "/images/main-Graad 5.png",
+    description:
+      "Comprehensive Afrikaans Home Language book for Grade 5 students.",
+    modules: ["1", "2"],
+  },
+  {
+    id: "main6",
+    title: "Graad 6 Afrikaans Huistaal",
+    grade: "Graad 6",
+    cover: "/images/Graad4 - Graad 6.png",
+    description:
+      "Comprehensive Afrikaans Home Language book for Grade 6 students.",
+    modules: ["1", "2", "3", "4"],
+  },
+  {
+    id: "main7",
+    title: "Graad 7 Afrikaans Huistaal",
+    grade: "Graad 7",
+    cover: "/images/Graad4 - Graad 7.png",
+    description:
+      "Comprehensive Afrikaans Home Language book for Grade 7 students.",
+    modules: ["1", "2", "3", "4"],
+  },
+];
+
 export const books = [
   {
     id: 1,
     title: "Graad 4",
+    title2: "Skattejag",
+    cycle: "Siklus 1",
     author: "Elna Pretorius",
     cover: "/images/Graad 4 Skattejag.png",
     images: [
@@ -12,7 +53,7 @@ export const books = [
     subject: "Module 1",
     grade: "Graad 4",
     number: "4",
-    price: 29.99,
+    // price: 29.99,
     description:
       " 'n Interaktiewe werkboek wat leer pret vir graad 4 leerlinge maak.",
     type: "Physical",
@@ -23,10 +64,13 @@ export const books = [
     dimension: "19 x 29cm",
     rating: 4.7,
     reviews: 120,
+    mainBookId: "main4",
   },
   {
     id: 2,
     title: "Sport",
+    title2: "Sport",
+    cycle: "Siklus 2",
     author: "Elna Pretorius",
     cover: "/images/Graad 4 Sport.png",
     images: [
@@ -37,7 +81,7 @@ export const books = [
     subject: "Module 2",
     grade: "Graad 4",
     number: "4",
-    price: 34.99,
+    // price: 34.99,
     description:
       "Exciting hands-on projects that integrate science, technology, engineering, and math for primary school students.",
     type: "Physical",
@@ -48,10 +92,13 @@ export const books = [
     dimension: "21 x 30cm",
     rating: 4.8,
     reviews: 85,
+    mainBookId: "main4",
   },
   {
     id: 3,
     title: "Graad 5 Ruimte",
+    title2: "Ruimte",
+    cycle: "Siklus 1",
     author: "Lindie Isherwood",
     cover: "/images/Graad 5 Ruimte.png",
     images: [
@@ -62,7 +109,7 @@ export const books = [
     subject: "Module 1",
     grade: "Graad 5",
     number: "5",
-    price: 27.99,
+    // price: 27.99,
     description:
       "An introductory programming book that teaches children the fundamentals of Python in a fun, interactive way.",
     type: "Physical",
@@ -73,10 +120,13 @@ export const books = [
     dimension: "18 x 28cm",
     rating: 4.9,
     reviews: 200,
+    mainBookId: "main5",
   },
   {
     id: 4,
     title: "Safari",
+    title2: "Safari",
+    cycle: "Siklus 2",
     author: "Lindie Isherwood",
     cover: "/images/Graad 5 Safari.png",
     images: [
@@ -87,7 +137,7 @@ export const books = [
     subject: "Module 2",
     grade: "Graad 5",
     number: "5",
-    price: 32.99,
+    // price: 32.99,
     description:
       "A comprehensive guide to navigating the digital world, covering topics from online safety to critical thinking in the age of information.",
     type: "Physical",
@@ -98,10 +148,13 @@ export const books = [
     dimension: "20 x 29cm",
     rating: 4.6,
     reviews: 150,
+    mainBookId: "main5",
   },
   {
     id: 5,
     title: "Graad 6 Ruimte",
+    title2: "Ruimte",
+    cycle: "Module 1",
     author: "Sarah Johnson",
     cover: "/images/Graad 6 Ruimte.png",
     images: [
@@ -112,7 +165,7 @@ export const books = [
     subject: "Module 1",
     grade: "Graad 6",
     number: "6",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -123,10 +176,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main6",
   },
   {
     id: 6,
     title: "Strokiesprente",
+    title2: "Strokiesprente",
+    cycle: "Module 2",
     author: "Sarah Johnson",
     cover: "/images/Graad 6 Strokiesprente.png",
     images: [
@@ -137,7 +193,7 @@ export const books = [
     subject: "Module 2",
     grade: "Graad 6",
     number: "6",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -148,10 +204,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main6",
   },
   {
     id: 7,
     title: "Videospeletjies",
+    title2: "Videospeletjies",
+    cycle: "Module 3",
     author: "Sarah Johnson",
     cover: "/images/Graad 6 Videospeletjies.png",
     images: [
@@ -162,7 +221,7 @@ export const books = [
     subject: "Module 3",
     grade: "Graad 6",
     number: "6",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -173,10 +232,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main6",
   },
   {
     id: 8,
     title: "Speurder / Spioen",
+    title2: "Reis Local - Dis Lekker",
+    cycle: "Module 4",
     author: "Sarah Johnson",
     cover: "/images/Graad 6 Speurder of Spioen.png",
     images: [
@@ -186,7 +248,7 @@ export const books = [
     subject: "Module 4",
     grade: "Graad 6",
     number: "6",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -197,10 +259,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main6",
   },
   {
     id: 9,
     title: "Musiek",
+    title2: "Musiek",
+    cycle: "Module 1",
     author: "Sarah Johnson",
     cover: "/images/Graad 7 Musiek.png",
     images: [
@@ -211,7 +276,7 @@ export const books = [
     subject: "Module 1",
     grade: "Graad 7",
     number: "7",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -222,10 +287,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main7",
   },
   {
     id: 10,
     title: "Tegnologie",
+    title2: "Tegnologie",
+    cycle: "Module 2",
     author: "Sarah Johnson",
     cover: "/images/Graad 7 Tegnologie.png",
     images: [
@@ -236,7 +304,7 @@ export const books = [
     subject: "Module 2",
     grade: "Graad 7",
     number: "7",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -247,10 +315,13 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main7",
   },
   {
     id: 11,
     title: "Flieks",
+    title2: "Flieks",
+    cycle: "Module 3",
     author: "Sarah Johnson",
     cover: "/images/Graad 7 Flieks.png",
     images: [
@@ -261,7 +332,7 @@ export const books = [
     subject: "Module 3",
     grade: "Graad 7",
     number: "7",
-    price: 25.99,
+    // price: 25.99,
     description:
       "A collection of fun and educational science experiments designed for third-grade students.",
     type: "Physical",
@@ -272,6 +343,35 @@ export const books = [
     dimension: "19 x 27cm",
     rating: 4.8,
     reviews: 95,
+    mainBookId: "main7",
+  },
+  {
+    id: 12,
+    title: "Flieks",
+    title2: "Tema",
+    cycle: "Module 4",
+    author: "Sarah Johnson",
+    cover: "/images/Graad 7 Flieks.png",
+    images: [
+      "/images/Graad 7 Flieks 1.png",
+      "/images/Graad 7 Flieks 2.png",
+      "/images/Graad 7 Flieks 3.png",
+    ],
+    subject: "Module 3",
+    grade: "Graad 7",
+    number: "7",
+    // price: 25.99,
+    description:
+      "A collection of fun and educational science experiments designed for third-grade students.",
+    type: "Physical",
+    publisher: "Luminous Publishing",
+    language: "Afrikaans",
+    paperback: "880",
+    isbn: "0312456793",
+    dimension: "19 x 27cm",
+    rating: 4.8,
+    reviews: 95,
+    mainBookId: "main7",
   },
 ];
 
@@ -293,14 +393,5 @@ export const authors = [
     classroomsImpacted: 3500,
     rating: 4.8,
     books: [books[2], books[3]],
-  },
-  {
-    name: "Sarah Johnson",
-    image: "/images/Grade 6 Space Theme Module 1.png",
-    bio: "Sarah Johnson specializes in creating engaging science content for elementary school students, with a focus on hands-on learning experiences.",
-    booksPublished: 6,
-    classroomsImpacted: 2800,
-    rating: 4.7,
-    books: [books[4]],
   },
 ];

@@ -47,24 +47,22 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <h1>Contact Us</h1>
+      <h1>Kontak Ons | Contact Us</h1>
       <div className="contact-content">
         <div className="contact-info">
           <h2>Get in Touch</h2>
           <p>
+            Ons hoor graag van jou! Of jy 'n vraag het oor ons boeke, hulp nodig
+            het met 'n bestelling, of net wil groet, kontak ons ​​gerus.
+            <br></br>
+            <br></br>
             We'd love to hear from you! Whether you have a question about our
             books, need assistance with an order, or just want to say hello,
             feel free to reach out to us.
           </p>
           <div className="contact-details">
             <p>
-              <FaEnvelope /> info@brilliant.com
-            </p>
-            <p>
-              <FaPhone /> (123) 456-7890
-            </p>
-            <p>
-              <FaMapMarkerAlt /> 123 Book Street, Reader's City, BC 12345
+              <FaEnvelope /> briljanteboeke@gmail.com
             </p>
           </div>
         </div>
@@ -72,7 +70,7 @@ const Contact = () => {
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Naam | Name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -80,7 +78,7 @@ const Contact = () => {
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Epos | Email"
             value={formData.email}
             onChange={handleChange}
             required
@@ -88,20 +86,20 @@ const Contact = () => {
           <input
             type="text"
             name="subject"
-            placeholder="Subject"
+            placeholder="Onderwerp | Subject"
             value={formData.subject}
             onChange={handleChange}
             required
           />
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="Jou bookskap | Message"
             value={formData.message}
             onChange={handleChange}
             required
           ></textarea>
           <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Stuur bookskap | Send Message"}
           </button>
           {submitMessage && <p className="submit-message">{submitMessage}</p>}
         </form>

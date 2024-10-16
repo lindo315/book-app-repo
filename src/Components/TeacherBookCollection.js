@@ -27,7 +27,9 @@ const TeacherBookCollection = () => {
 
   return (
     <section className="teacher-book-collection">
-      <h2 className="collection-title">Educational Resources</h2>
+      <h2 className="collection-title">
+        Modules In Ons Werkboeke | Modules In Our Workbooks
+      </h2>
       <div className="grade-filters">
         {grades.map((number) => (
           <button
@@ -44,8 +46,8 @@ const TeacherBookCollection = () => {
           <Link to={`/book/${book.id}`} key={book.id} className="book-card">
             <img src={book.cover} alt={book.title} className="book-cover" />
             <div className="book-info">
-              <h3 className="book-title-1">{book.title}</h3>
-              <p className="book-author">{book.author}</p>
+              <h3 className="book-title-1">{book.title2}</h3>
+              <p className="book-cycle">{book.cycle}</p>
               <div className="grade-div">
                 <p className="book-grade">Graad: {book.number}</p>
               </div>

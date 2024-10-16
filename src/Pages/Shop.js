@@ -62,7 +62,7 @@ const Shop = ({ addToCart }) => {
               </div>
               <div className="book-info">
                 <h3 className="book-title">{book.title}</h3>
-                <p className="book-author">{book.author}</p>
+                {/* <p className="book-author">{book.author}</p> */}
                 {/* <p className="book-price">R{book.price.toFixed(2)}</p> */}
                 <p className="book-description">{book.description}</p>
               </div>

@@ -5,7 +5,7 @@ import "../Styles/Confirmation.css";
 
 const Confirmation = () => {
   const location = useLocation();
-  const { orderDetails } = location.state || {};
+  const { orderDetails, cart } = location.state || {};
 
   return (
     <div className="confirmation-page">
@@ -16,8 +16,7 @@ const Confirmation = () => {
           <h2>Thank you for your order!</h2>
           <p>
             Your order has been successfully placed. We'll send you an email
-            with the order details and tracking information once your order
-            ships.
+            with the order details and further information.
           </p>
         </div>
         {orderDetails && (
@@ -35,6 +34,23 @@ const Confirmation = () => {
               {orderDetails.city}, {orderDetails.zipCode},{" "}
               {orderDetails.country}
             </p>
+          </div>
+        )}
+        {cart && (
+          <div className="ordered-items">
+            <h3>Ordered Items</h3>
+            {cart.map((item) => (
+              <div key={item.id} className="ordered-item">
+                <h4>{item.title}</h4>
+                <p>Grade: {item.grade}</p>
+                <p>Modules:</p>
+                <ul>
+                  {item.modules.map((module, index) => (
+                    <li key={index}>Module {module}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         )}
       </div>

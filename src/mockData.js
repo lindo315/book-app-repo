@@ -3,7 +3,7 @@ export const mainBooks = [
     id: "main4",
     title: "Graad 4 Afrikaans Huistaal",
     grade: "Graad 4",
-    cover: "/images/Graad4 - Graad 4.png",
+    cover: "/images/Graad 4 - Grade 4.png",
     description:
       "Comprehensive Afrikaans Home Language book for Grade 4 students.",
     modules: ["1", "2"],
@@ -12,7 +12,7 @@ export const mainBooks = [
     id: "main5",
     title: "Graad 5 Afrikaans Huistaal",
     grade: "Graad 5",
-    cover: "/images/main-Graad 5.png",
+    cover: "/images/Graad 5 - Grade 5.png",
     description:
       "Comprehensive Afrikaans Home Language book for Grade 5 students.",
     modules: ["1", "2"],
@@ -21,7 +21,7 @@ export const mainBooks = [
     id: "main6",
     title: "Graad 6 Afrikaans Huistaal",
     grade: "Graad 6",
-    cover: "/images/Graad4 - Graad 6.png",
+    cover: "/images/Graad 6 - Grade 6.png",
     description:
       "Comprehensive Afrikaans Home Language book for Grade 6 students.",
     modules: ["1", "2", "3", "4"],
@@ -30,7 +30,7 @@ export const mainBooks = [
     id: "main7",
     title: "Graad 7 Afrikaans Huistaal",
     grade: "Graad 7",
-    cover: "/images/Graad4 - Graad 7.png",
+    cover: "/images/Graad 7 - Grade 7.png",
     description:
       "Comprehensive Afrikaans Home Language book for Grade 7 students.",
     modules: ["1", "2", "3", "4"],

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   FaShoppingCart,
-  FaBookOpen,
-  FaInfoCircle,
   FaCheck,
-  FaArrowLeft,
-  FaArrowRight,
-  FaTimes,
   FaImage,
   FaGraduationCap,
   FaLanguage,
+  FaArrowLeft,
+  FaArrowRight,
+  FaTimes,
 } from "react-icons/fa";
 import Breadcrumb from "../Components/Breadcrumb";
 import { books, mainBooks } from "../mockData";
@@ -30,7 +28,6 @@ const BookDetail = ({ addToCart }) => {
 
     if (foundMainBook) {
       setMainBook(foundMainBook);
-      // Set the first module as active by default
       const firstModule = books.find((b) => b.mainBookId === foundMainBook.id);
       setActiveModule(firstModule);
     } else if (foundModule) {
@@ -64,16 +61,14 @@ const BookDetail = ({ addToCart }) => {
   };
 
   const handleNextImage = () => {
-    const images = activeModule.images;
     setEnlargedImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === activeModule.images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const handlePrevImage = () => {
-    const images = activeModule.images;
     setEnlargedImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? activeModule.images.length - 1 : prevIndex - 1
     );
   };
 
@@ -81,85 +76,85 @@ const BookDetail = ({ addToCart }) => {
     setEnlargedImageIndex(null);
   };
 
-  const handleImageError = (e) => {
-    e.target.onerror = null;
-    e.target.src = "/images/page.png"; // Replace with an actual fallback image path
-  };
-
   return (
     <div className="book-detail-page">
       <Breadcrumb items={["Home", "Shop", mainBook.title]} />
-      <div className="book-detail-content">
-        <div className="main-book-section">
+      <div className="main-book-section">
+        <div className="main-book-info">
           <img
             src={mainBook.cover}
             alt={mainBook.title}
             className="main-book-cover"
           />
-          <h1 className="book-title">{mainBook.title}</h1>
-          <div className="book-meta">
-            <span>
-              <FaGraduationCap /> Graad: {mainBook.grade}
-            </span>
-            <span>
-              <FaLanguage /> Language: Afrikaans
-            </span>
-          </div>
-          <p className="book-description">{mainBook.description}</p>
-          <button
-            className={`add-to-cart-btn ${isLoading ? "loading" : ""} ${
-              isAdded ? "added" : ""
-            }`}
-            onClick={handleAddToCart}
-            disabled={isLoading || isAdded}
-          >
-            {isLoading ? (
-              <div className="loading-spinner"></div>
-            ) : isAdded ? (
-              <>
-                <FaCheck /> Added to Cart
-              </>
-            ) : (
-              <>
-                <FaShoppingCart /> Add Quote
-              </>
-            )}
-          </button>
-        </div>
-        <div className="modules-section">
-          <h2>Modules in this book:</h2>
-          <div className="modules-grid">
-            {mainBook.modules.map((moduleNumber) => {
-              const moduleBook = books.find(
-                (b) =>
-                  b.mainBookId === mainBook.id &&
-                  b.subject === `Module ${moduleNumber}`
-              );
-              return (
-                <div
-                  key={moduleBook.id}
-                  className={`module-item ${
-                    activeModule && activeModule.id === moduleBook.id
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() => handleModuleClick(moduleBook.id)}
-                >
-                  <img
-                    src={moduleBook.cover}
-                    alt={moduleBook.title}
-                    className="module-cover"
-                  />
-                  <div className="module-info">
-                    <h3>{moduleBook.title}</h3>
-                    <p>{moduleBook.subject}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="main-book-details">
+            <h1 className="book-title">{mainBook.title}</h1>
+            <div className="book-meta">
+              <span>
+                <FaGraduationCap /> Graad: {mainBook.grade}
+              </span>
+              <span>
+                <FaLanguage /> Language: Afrikaans
+              </span>
+            </div>
+            <p className="book-description">{mainBook.description}</p>
+
+            <div className="modules-section">
+              <h2>Modules in this book:</h2>
+              <div className="modules-grid">
+                {mainBook.modules.map((moduleNumber) => {
+                  const moduleBook = books.find(
+                    (b) =>
+                      b.mainBookId === mainBook.id &&
+                      b.subject === `Module ${moduleNumber}`
+                  );
+                  return (
+                    <div
+                      key={moduleBook.id}
+                      className={`module-item ${
+                        activeModule && activeModule.id === moduleBook.id
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() => handleModuleClick(moduleBook.id)}
+                    >
+                      <img
+                        src={moduleBook.cover}
+                        alt={moduleBook.title}
+                        className="module-cover"
+                      />
+                      <div className="module-info">
+                        <h3>{moduleBook.title}</h3>
+                        <p>{moduleBook.subject}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <button
+              className={`add-to-cart-btn ${isLoading ? "loading" : ""} ${
+                isAdded ? "added" : ""
+              }`}
+              onClick={handleAddToCart}
+              disabled={isLoading || isAdded}
+            >
+              {isLoading ? (
+                <div className="loading-spinner"></div>
+              ) : isAdded ? (
+                <>
+                  <FaCheck /> Added to Cart
+                </>
+              ) : (
+                <>
+                  <FaShoppingCart /> Add Quote
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>
+
       <div className="module-preview-section">
         <h2>
           Module Preview:{" "}
@@ -175,7 +170,6 @@ const BookDetail = ({ addToCart }) => {
                   alt={`Preview page ${index + 1}`}
                   className="preview-image"
                   onClick={() => handleImageClick(index)}
-                  onError={handleImageError}
                 />
               ))
             ) : (
@@ -187,9 +181,13 @@ const BookDetail = ({ addToCart }) => {
           </div>
         )}
       </div>
+
       {enlargedImageIndex !== null && (
-        <div className="enlarged-image-overlay">
-          <div className="enlarged-image-container">
+        <div className="enlarged-image-overlay" onClick={handleCloseEnlarged}>
+          <div
+            className="enlarged-image-container"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={activeModule.images[enlargedImageIndex]}
               alt={`Enlarged preview ${enlargedImageIndex + 1}`}

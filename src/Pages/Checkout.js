@@ -5,6 +5,7 @@ import "../Styles/Checkout.css";
 
 const Checkout = ({ cart, setCart }) => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -25,18 +26,14 @@ const Checkout = ({ cart, setCart }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically process the order
-    // For this example, we'll just clear the cart and navigate to the confirmation page
-    setCart([]);
-    navigate("/confirmation", { state: { orderDetails: formData } });
+    setIsLoading(true);
+    // Simulate API call or processing time
+    setTimeout(() => {
+      navigate("/confirmation", { state: { orderDetails: formData, cart } });
+      setCart([]);
+      setIsLoading(false);
+    }, 2000);
   };
-
-  const subtotal = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-  const tax = subtotal * 0.1; // Assuming 10% tax
-  const total = subtotal + tax;
 
   return (
     <div className="checkout-page">
@@ -122,27 +119,35 @@ const Checkout = ({ cart, setCart }) => {
               required
             />
           </div>
-          <button type="submit" className="place-order-btn">
-            Place Order
+          <button
+            type="submit"
+            className="place-order-btn"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <>
+                <div className="loading-spinner"></div>
+                Processing...
+              </>
+            ) : (
+              "Place Order"
+            )}
           </button>
         </form>
         <div className="order-summary">
           <h2>Order Summary</h2>
           {cart.map((item) => (
             <div key={item.id} className="summary-item">
-              <span>
-                {item.title} x {item.quantity}
-              </span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
+              <h3>{item.title}</h3>
+              <p>Grade: {item.grade}</p>
+              <p>Modules:</p>
+              <ul>
+                {item.modules.map((module, index) => (
+                  <li key={index}>Module {module}</li>
+                ))}
+              </ul>
             </div>
           ))}
-          <div className="summary-total">
-            <div>Subtotal: ${subtotal.toFixed(2)}</div>
-            <div>Tax: ${tax.toFixed(2)}</div>
-            <div>
-              <strong>Total: ${total.toFixed(2)}</strong>
-            </div>
-          </div>
         </div>
       </div>
     </div>
